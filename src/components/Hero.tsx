@@ -21,7 +21,7 @@ const Hero = () => {
             </div>
             <div className="flex items-center space-x-2">
               <Hammer className="h-6 w-6 text-orange-500" />
-              <span>Çmime Konkurruese</span>
+              <span>Çmimee Konkurruese</span>
             </div>
             <div className="flex items-center space-x-2">
               <Wrench className="h-6 w-6 text-orange-500" />
