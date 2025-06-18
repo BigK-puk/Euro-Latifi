@@ -43,7 +43,7 @@ const EnhancedHero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl mb-10 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Dyqani më i besuar në Puke për materiale ndërtimi. Ofrojmë cilësinë më të lartë me çmime konkurruese dhe shërbim profesional 24/7.
+            Dyqaniiiiiii më i besuar në Puke për materiale ndërtimi. Ofrojmë cilësinë më të lartë me çmime konkurruese dhe shërbim profesional 24/7.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-10 max-w-4xl mx-auto">
