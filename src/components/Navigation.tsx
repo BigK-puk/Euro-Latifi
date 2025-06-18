@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Building, Menu, X, Phone, MapPin, MessageCircle } from 'lucide-react';
 
@@ -70,43 +69,63 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden"
+            className="md:hidden relative z-50 flex items-center justify-center w-12 h-12 rounded-full bg-blue-800/80 backdrop-blur-lg shadow-lg transition-all duration-300 focus:outline-none"
+            aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <span className="sr-only">Open main menu</span>
+            <span className="absolute inset-0 flex items-center justify-center">
+              <span
+                className={`block w-7 h-0.5 bg-white rounded transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : '-translate-y-2'}`}
+              ></span>
+              <span
+                className={`block w-7 h-0.5 bg-white rounded transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}
+              ></span>
+              <span
+                className={`block w-7 h-0.5 bg-white rounded transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : 'translate-y-2'}`}
+              ></span>
+            </span>
           </button>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-blue-800 border-t border-blue-700">
-            <div className="py-4 space-y-2">
+        <div
+          className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${isMenuOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}
+        >
+          <div
+            className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+          <div
+            className={`absolute right-4 left-4 top-4 rounded-2xl bg-blue-800 shadow-2xl border border-blue-700 transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'}`}
+          >
+            <div className="py-6 space-y-2 flex flex-col">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="block w-full text-left px-4 py-2 hover:bg-blue-700 transition-colors"
+                className="block w-full text-left px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
               >
                 Kryefaqja
               </button>
               <button 
                 onClick={() => scrollToSection('products')}
-                className="block w-full text-left px-4 py-2 hover:bg-blue-700 transition-colors"
+                className="block w-full text-left px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
               >
                 Produktet
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="block w-full text-left px-4 py-2 hover:bg-blue-700 transition-colors"
+                className="block w-full text-left px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
               >
                 Rreth Nesh
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="block w-full text-left px-4 py-2 hover:bg-blue-700 transition-colors"
+                className="block w-full text-left px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
               >
                 Kontakti
               </button>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
